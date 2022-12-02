@@ -41,4 +41,4 @@ function pureCollectOddValues(arr) {
   return newArr;
 }
 
-pureCollectOddValues([1, 2, 3, 4, 5]);
+pureCollectOddValues([4, 5]);
