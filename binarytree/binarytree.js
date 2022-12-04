@@ -12,6 +12,11 @@
 //&           a) if (!left node) => node = left node
 //&           b) if (left node)=> move to it + repeat steps
 
+//?      TREE
+//?       10
+//?   5        13
+//? 2   7   11    16
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
