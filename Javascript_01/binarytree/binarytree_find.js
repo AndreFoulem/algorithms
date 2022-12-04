@@ -1,6 +1,6 @@
 //Binary search tree (sorted)
 
-//* -----------  Inserting A Node  ------------- //
+//* -----------  Construct Tree : Inserting nodes  ------------- //
 //& 1) Create a new node
 //& 2) Start at the root
 //&   A) If !Root  => node = root
@@ -18,23 +18,35 @@ class BinarySearchTree {
   }
   insert(value) {
     let newNode = new Node(value);
-    console.log('newnode', newNode);
+
     if (this.root === null) {
       this.root = newNode;
       return this;
-    } else {
-      let current = this.root;
-      while (true) {
-        if (value < current.value) {
-          if (current.left === null) {
-            current.left = newNode;
-            return this;
-          }
+    }
+
+    let head = this.root;
+    while (true) {
+      if (value === head.value) return 'undefined';
+      if (value < head.value) {
+        //! left side
+        if (head.left === null) {
+          head.left = newNode;
+          return this;
         }
+        head = head.left;
+
+        //! right side
+      } else if (value > head.value) {
+        if (head.right === null) {
+          head.right = newNode;
+          return this;
+        }
+        head = head.right;
       }
     }
   }
 }
+
 //?      TREE
 //?       10
 //?   5        13
@@ -50,7 +62,7 @@ class Node {
 
 let tree = new BinarySearchTree();
 tree.insert(10);
-tree.insert(5);
+tree.insert(10);
 // tree.root = new Node(10);
 
 // tree.root.right = new Node(15);
