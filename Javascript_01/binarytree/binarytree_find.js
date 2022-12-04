@@ -1,16 +1,17 @@
 //Binary search tree (sorted)
 
-//* -----------  Construct Tree : Inserting nodes  ------------- //
-//& 1) Create a new node
-//& 2) Start at the root
-//&   A) If !Root  => node = root
-//&   B) If Root:
-//&      i) if node > root =>
-//&           a) if (!right node) => node = right node
-//&           b) if(right node) => move to it + repeat steps
-//&      ii) if node < root => check if (left node)
-//&           a) if (!left node) => node = left node
-//&           b) if (left node)=> move to it + repeat steps
+//* ----------- Find a node  ------------- //
+//& 1) Start at Root
+//& 2) IF (!root) => return FALSE
+//&   A) If (root) =>
+//&       i) IF(value = root) return TRUE
+//&       ii) ELSE
+//&           IF(value > root)
+//&           a) IF (root.right) => Move to it, repeat steps
+//&           b) if (!root.right) => return FALSE
+//&           ELSE(value < root)
+//&           a) if (root.left) => Move to it, repeat steps
+//&           b) if (!root.left) => return FALSE
 
 class BinarySearchTree {
   constructor() {
