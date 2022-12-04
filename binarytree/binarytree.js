@@ -1,2 +1,15 @@
-//* -----------  First Iteration  ------------- //
-const binarytree = {};
+//Binary search tree (sorted)
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
