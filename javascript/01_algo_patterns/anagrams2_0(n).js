@@ -1,3 +1,11 @@
+/**
+ * 
+    1) We create an object for string 1 key/values
+    2) We loop string2 and mutage str1 obj by decrementing the keys 
+      toward zero. If zero, it trips the wire and return false, meaning 
+      that str2 has more counts than str1.
+ */
+
 function isAnagram(string1, string2) {
   // guard
   if (string1.length !== string2.length) return false;
@@ -12,7 +20,6 @@ function isAnagram(string1, string2) {
     // If lookup['a'] exists yet increment the count by 1
     // If lookup['a'] does not exists yet, set the count to 1
   }
-  console.log(lookup);
 
   //! Compare string2 to string1 object. Replace the value(letter) of string 2
   //!   to keys of string1
@@ -25,11 +32,12 @@ function isAnagram(string1, string2) {
     if (!lookup[letter]) {
       return false;
     } else {
-      console.log(lookup[letter]);
+      //! mutation the str1 obj
       lookup[letter] = lookup[letter] - 1;
     }
   }
+  console.log(lookup);
   return true;
 }
 
-console.log(isAnagram('acddd', 'dddan'));
+console.log(isAnagram('acddd', 'dddac'));
