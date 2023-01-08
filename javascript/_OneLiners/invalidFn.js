@@ -9,8 +9,6 @@ function fn(varr) {
 }
 
 function invalid(param) {
-  // if (!param) return 'falsy';
-
   if (typeof param === 'undefined') return 'undefined value';
   if (typeof param === 'string') {
     if (param.length === 0) return 'empty string';
@@ -25,4 +23,4 @@ function invalid(param) {
   }
 }
 
-console.log(fn(null));
+console.log(fn({}));
