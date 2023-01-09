@@ -1,3 +1,5 @@
+//? Multiple pointer with for loop with index + 1 pointer
+
 //! Sum zero = Find the first pair of 2 int that sum to zero in a
 //!   sorted array. ex: ex: sumZero([-2,-1,0,1,2]) => [ -2,-2]
 
