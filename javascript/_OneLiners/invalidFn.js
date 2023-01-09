@@ -2,10 +2,8 @@ const id = Math.random().toString(36).slice(2);
 console.log(id);
 
 function fn(varr) {
-  const invalidMsg = invalid(varr);
-  if (invalidMsg) return invalidMsg;
-
-  return 'valid';
+  const invalidMsg = invalidObj(varr);
+  if (invalidMsg) return invalidMsg.error;
 }
 
 function invalid(param) {
@@ -23,4 +21,11 @@ function invalid(param) {
   }
 }
 
-console.log(fn({}));
+function invalidObj(obj) {
+  if (!(obj && Object.keys(obj).length > 0 && obj.constructor === Object)) {
+    return { error: 'is not an empty obj' };
+  }
+  return null;
+}
+
+console.log(fn({ id: 'sd' }));
