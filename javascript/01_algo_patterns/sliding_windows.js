@@ -43,7 +43,7 @@ function maxSubarraySum(arr, num) {
   const args = guards(arr, num);
   if (args.isInvalid) return args.error;
 
-  let max = -Infinity;
+  let max = Number.NEGATIVE_INFINITY;
 
   for (let i = 0; i < arr.length - num + 1; i++) {
     temp = 0;
