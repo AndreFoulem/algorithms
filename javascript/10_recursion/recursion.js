@@ -24,3 +24,16 @@ function count(num) {
   count(num) //reducer
 }
 count(3)
+
+function sumRange(num) {
+  if (num === 0) return 0 //trip
+  return num + sumRange(num - 1)
+  /**
+   *  return 5 + sumRange(4)
+   *             4 + sumRange(3)
+   *                  3 + sumRange(2)
+   *                      2 + sumRange(1)
+   *                          1  + sumRange(0) */
+}
+
+console.log(sumRange(5))
