@@ -1,12 +1,16 @@
 //! Helper methods collect results outside
+//! Not the pure way
 
 function collectOdds(arr) {
-  // const validateGuard = guard(arr)
-  // if (validateGuard.isInvalid) return validateGuard.error
+  const passedArray = validationGuard(arr)
+  if (passedArray.isInvalid) return passedArray.errorMsg
 
   let result = []
 
   function recursiveHelper(helperInput) {
+    //! trip wire
+    if (helperInput.length === 0) return
+
     if (helperInput[0] % 2 !== 0) {
       result.push(helperInput[0])
     }
@@ -18,10 +22,10 @@ function collectOdds(arr) {
   return result
 }
 
-console.log(collectOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+console.log(collectOdds([]))
 
-// function guard(arr) {
-//   if (!Array.isArray(arr)) return { isInvalid: true, error: 'not and array' }
-//   if (arr.length === 0) return { isInvalid: true, error: 'empty array' }
-//   return { isInvalid: false }
-// }
+function validationGuard(arr) {
+  if (!Array.isArray(arr)) return { isInvalid: true, errorMsg: 'not and array' }
+  if (arr.length === 0) return { isInvalid: true, errorMsg: 'empty array' }
+  return { isInvalid: false }
+}
