@@ -4,11 +4,11 @@ function collectOddValues(arr) {
   //
   let newArr = []
 
-  if (arr.length === 0) {
-    return newArr
-  }
+  //! Trip
+  if (arr.length === 0) return newArr
 
   if (arr[0] % 2 !== 2) {
+    //! Mutate
     newArr.push(arr[0])
   }
 
@@ -18,3 +18,5 @@ function collectOddValues(arr) {
 }
 
 collectOddValues([1, 2, 3, 4, 5])
+
+//! mutated.concat(fun(arr.sliced))
