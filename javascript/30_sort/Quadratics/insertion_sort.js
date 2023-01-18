@@ -1,4 +1,6 @@
 //! Insertion sort
+//! Good for online algo - data keeps coming
+//! Better if data is nearly sorted
 //* Builds the sort by gradually creating a large left half
 //* which is  always sorted
 
