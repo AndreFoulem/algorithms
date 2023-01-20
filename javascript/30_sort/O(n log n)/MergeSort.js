@@ -1,6 +1,17 @@
 //! Merge + Sort
 //? A) In is usefult to first implement a fn for merging two
 //?   arrays. Should then create a new array of sorted values
+//!  1) Halves the array  2) Merge + sort back the array
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr
+  let mid = Math.floor(arr.length / 2)
+  let left = mergeSort(arr.slice(0, mid))
+  let right = mergeSort(arr.slice(mid))
+  return merge(left, right)
+}
+
+console.log(mergeSort([10, 25, 34, 23, 12, 44]))
 
 function merge(arr1, arr2) {
   let results = []
@@ -25,5 +36,3 @@ function merge(arr1, arr2) {
   }
   return results
 }
-
-console.log(merge([1, 10, 50], [2, 14, 99, 100]))
