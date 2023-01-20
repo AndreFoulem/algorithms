@@ -9,12 +9,12 @@ function mergeSort(arr) {
   let mid = Math.floor(arr.length / 2)
   let left = mergeSort(arr.slice(0, mid))
   let right = mergeSort(arr.slice(mid))
-  return merge(left, right)
+  return mergeHelper(left, right)
 }
 
 console.log(mergeSort([10, 25, 34, 23, 12, 44]))
 
-function merge(arr1, arr2) {
+function mergeHelper(arr1, arr2) {
   let results = []
   let i = 0
   let j = 0
