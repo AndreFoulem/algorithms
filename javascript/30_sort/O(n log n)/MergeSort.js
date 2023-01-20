@@ -2,6 +2,7 @@
 //? A) In is usefult to first implement a fn for merging two
 //?   arrays. Should then create a new array of sorted values
 //!  1) Halves the array  2) Merge + sort back the array
+//* Decompositions O(log n) + merge O(n) = O(n log n)
 
 function mergeSort(arr) {
   if (arr.length <= 1) return arr
