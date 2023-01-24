@@ -1,8 +1,8 @@
 class Student {
-  constructor(firstName, lastName) {
+  constructor(firstName, lastName = 'foulem') {
     this.firstName = firstName
     this.lastName = lastName
   }
 }
 
-console.log(new Student('andre', 'foulem'))
+console.log(new Student('andre'))
