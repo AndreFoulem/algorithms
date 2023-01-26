@@ -33,11 +33,11 @@ class SinglyLinkedList {
       return 'empty'
     }
     //! first thing is to traverse the list
-    let current = this.head
-    let newTail = current
-    while (current.next) {
-      newTail = current
-      current = current.next
+    let temp = this.head
+    let newTail = temp
+    while (temp.next) {
+      newTail = temp
+      temp = temp.next
     }
     this.tail = newTail
     //!sever the last tail
@@ -48,9 +48,21 @@ class SinglyLinkedList {
       this.head = null
       this.tail = null
     }
-    return current
-    console.log(current.value)
-    console.log(newTail.value)
+    return temp
+  }
+
+  //* -----------  SHIFT  ------------- //
+  shift() {
+    if (!this.head) return undefined
+    let originalFirstNodeHead = this.head
+    this.head = originalFirstNodeHead.next
+
+    this.length--
+    if (this.length === 0) {
+      this.head = null
+      this.tail = null
+    }
+    return originalFirstNodeHead
   }
 }
 
