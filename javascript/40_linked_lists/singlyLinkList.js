@@ -13,6 +13,8 @@ class SinglyLinkedList {
     this.head = null
     this.tail = null
   }
+
+  //* ----------- PUSH  ------------- //
   push(value) {
     let newNode = new Node(value)
     // assign refs
@@ -28,6 +30,7 @@ class SinglyLinkedList {
     return this
   }
 
+  //* -----------  POP  ------------- //
   pop() {
     if (!this.head) {
       return 'empty'
@@ -64,11 +67,27 @@ class SinglyLinkedList {
     }
     return originalFirstNodeHead
   }
+
+  //* -----------  UNSHIFT  ------------- //
+  unshift(value) {
+    let newNode = new Node(value)
+
+    if (this.head) {
+      //!-> tail holds ref to old node
+      newNode.next = this.head
+      this.head = newNode
+    } else if (!this.head) {
+      this.tail = this.head = newNode
+    }
+    this.length++
+    return this
+  }
 }
 
 let list = new SinglyLinkedList()
 list.push('first')
 list.push('second')
 list.push('third')
+
 console.log(list.pop())
-console.log(list)
+console.log(list.length)
