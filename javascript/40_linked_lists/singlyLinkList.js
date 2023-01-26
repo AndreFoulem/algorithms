@@ -96,12 +96,24 @@ class SinglyLinkedList {
     }
     return current
   }
+
+  //* -----------  SET NODE VALUE ------------- //
+  set(index, value) {
+    let foundNode = this.get(index)
+    if (foundNode) {
+      foundNode.value = value
+      return true
+    }
+    return false
+  }
 }
 
 let list = new SinglyLinkedList()
 list.push('first')
 list.push('second')
 list.push('third')
+list.set(2, 'yo')
 
 console.log(list.pop())
 console.log(list.length)
+console.log(list)
