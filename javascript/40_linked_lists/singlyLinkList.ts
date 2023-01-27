@@ -22,7 +22,8 @@ class SinglyLinkedList {
 
   //* ----------- PUSH  ------------- //
   push(value: string): object {
-    let newNode = new myNode(value)
+    let newNode: myNode | null
+    newNode = new myNode(value)
     // assign refs
     if (this.head) {
       //!-> tail holds ref to old node
@@ -118,6 +119,22 @@ class SinglyLinkedList {
       return true
     }
     return false
+  }
+
+  //* -----------  INSERT  ------------- //
+  //* > Find the node previous to value with get() (index -1)
+  insert(index, value) {
+    // guard
+    if (index < 0 || index > this.length) return false
+    // push
+    if (index === this.length) return this.push(value)
+    // unshift
+    if (index === 0) return this.unshift(value)
+
+    // create new node
+    let newNode = new Node(value)
+    // get previous node
+    let prev = this.get(index - 1)
   }
 }
 
