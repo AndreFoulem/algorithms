@@ -123,18 +123,32 @@ class SinglyLinkedList {
 
   //* -----------  INSERT  ------------- //
   //* > Find the node previous to value with get() (index -1)
-  insert(index, value) {
+  insert(index, value): boolean {
     // guard
     if (index < 0 || index > this.length) return false
     // push
-    if (index === this.length) return this.push(value)
+    if (index === this.length) {
+      return !!this.push(value)
+    }
+
     // unshift
     if (index === 0) return this.unshift(value)
 
     // create new node
-    let newNode = new Node(value)
+    let newNode = new myNode(value)
     // get previous node
     let prev = this.get(index - 1)
+
+    //* switch arroo
+    let temp = prev.next
+    // connect old node to inserted node
+    prev.next = newNode
+    // connect next to newNode
+    newNode.next = temp
+    //* end switch arroo
+
+    this.length++
+    return true
   }
 }
 
@@ -142,7 +156,7 @@ let list = new SinglyLinkedList()
 list.push('first')
 list.push('second')
 list.push('third')
-list.set(2, 'yo')
+// list.insert(1, 'insert')
 
 console.log(list.pop())
 console.log(list.length)
