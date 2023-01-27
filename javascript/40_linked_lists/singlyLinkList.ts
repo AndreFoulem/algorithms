@@ -164,6 +164,8 @@ class SinglyLinkedList {
     this.legnth--
     return removed
   }
+
+  //* -----------  REVERSE (IN PLACE) ------------- //
 }
 
 let list = new SinglyLinkedList()
