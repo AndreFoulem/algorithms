@@ -165,7 +165,19 @@ class SinglyLinkedList {
     return removed
   }
 
+  //* -----------  PRINT  ------------- //
+  print() {
+    var arr = []
+    var current = this.head
+    while (current) {
+      arr.push(current.value)
+      current = current.next
+    }
+    return arr
+  }
+
   //* -----------  REVERSE (IN PLACE) ------------- //
+  reverse() {}
 }
 
 let list = new SinglyLinkedList()
@@ -174,6 +186,4 @@ list.push('second')
 list.push('third')
 // list.insert(1, 'insert')
 
-console.log(list.pop())
-console.log(list.length)
-console.log(list)
+console.log(list.print())
