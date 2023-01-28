@@ -177,7 +177,21 @@ class SinglyLinkedList {
   }
 
   //* -----------  REVERSE (IN PLACE) ------------- //
-  reverse() {}
+  reverse() {
+    var node = this.head
+    this.head = this.tail
+    this.tail = node
+
+    let next
+    let prev = null
+    for (let i = 0; i < this.length; i++) {
+      next = node.next
+      node.next = prev
+      prev = node
+      node = next
+    }
+    return this
+  }
 }
 
 let list = new SinglyLinkedList()
@@ -186,4 +200,6 @@ list.push('second')
 list.push('third')
 // list.insert(1, 'insert')
 
+console.log(list.print())
+console.log(list.reverse())
 console.log(list.print())
