@@ -66,7 +66,26 @@ class DoublyLinkedlIst {
   }
 
   shift() {
-    if (length === 0) return undefined
+    if (this.length === 0) return undefined
+
+    let oldNode = this.head
+
+    if (this.length === 1) {
+      this.head = null
+      // @ts-ignore
+      this.head.prev = null
+      // @ts-ignore
+      this.head.next = null
+    } else {
+      // @ts-ignore
+      this.head = oldNode.next
+      // @ts-ignore
+      this.head.prev = null
+      // @ts-ignore
+      oldNode.next = null
+    }
+    this.length--
+    return oldNode
   }
 }
 
@@ -78,4 +97,6 @@ console.log(myList)
 myList.push('20')
 console.log(myList)
 myList.pop()
+console.log(myList)
+myList.shift()
 console.log(myList)
