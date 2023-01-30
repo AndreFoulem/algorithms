@@ -196,6 +196,7 @@ class SinglyLinkedList {
 
 let list = new SinglyLinkedList()
 list.push('first')
+
 list.push('second')
 list.push('third')
 // list.insert(1, 'insert')
