@@ -106,6 +106,30 @@ class DoublyLinkedlIst {
     this.length++
     return this
   }
+
+  get(nodeAtIndex) {
+    guard: if (nodeAtIndex < 0 || nodeAtIndex >= this.length) return null
+
+    if (nodeAtIndex <= this.length / 2) {
+      let index = 0
+      let tempHead = this.head
+      while (index != nodeAtIndex) {
+        // @ts-ignore
+        tempHead = tempHead.next
+        index++
+      }
+      return tempHead
+    } else {
+      let index = this.length - 1
+      let tempTail = this.tail
+      while (index != nodeAtIndex) {
+        // @ts-ignore
+        tempTail = tempTail.prev
+        index--
+      }
+      return tempTail
+    }
+  }
 }
 
 let myList = new DoublyLinkedlIst()
@@ -114,10 +138,6 @@ console.log(myList)
 myList.push('10')
 console.log(myList)
 myList.push('20')
+
 console.log(myList)
-myList.pop()
-console.log(myList)
-myList.shift()
-console.log(myList)
-myList.unshift('new')
-console.log(myList)
+console.log(myList.get(0))
