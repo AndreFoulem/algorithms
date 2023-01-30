@@ -45,10 +45,33 @@ class DoublyLinkedlIst {
 
     return this
   }
+
+  pop() {
+    if (this.length === 0) return undefined
+
+    let poppedNode = this.tail
+    if (this.length === 1) {
+      this.head = null
+      this.tail = null
+    }
+    // @ts-ignore
+    this.tail = poppedNode.prev
+    // @ts-ignore
+    this.tail.next = null
+    // @ts-ignore
+    poppedNode.prev = null
+
+    this.length--
+    return this
+  }
 }
 
 let myList = new DoublyLinkedlIst()
 myList.push('00')
 console.log(myList)
 myList.push('10')
+console.log(myList)
+myList.push('20')
+console.log(myList)
+myList.pop()
 console.log(myList)
