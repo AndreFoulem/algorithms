@@ -87,6 +87,25 @@ class DoublyLinkedlIst {
     this.length--
     return oldNode
   }
+
+  unshift(value: string) {
+    let newNode = new ListNode(value)
+
+    //1
+    if (this.length === 0) {
+      this.head = newNode
+      this.tail = newNode
+    } else {
+      newNode.next = this.head
+      // @ts-ignore
+
+      this.head.prev = newNode
+
+      this.head = newNode
+    }
+    this.length++
+    return this
+  }
 }
 
 let myList = new DoublyLinkedlIst()
@@ -99,4 +118,6 @@ console.log(myList)
 myList.pop()
 console.log(myList)
 myList.shift()
+console.log(myList)
+myList.unshift('new')
 console.log(myList)
