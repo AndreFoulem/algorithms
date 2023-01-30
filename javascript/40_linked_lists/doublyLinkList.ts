@@ -64,6 +64,10 @@ class DoublyLinkedlIst {
     this.length--
     return this
   }
+
+  shift() {
+    if (length === 0) return undefined
+  }
 }
 
 let myList = new DoublyLinkedlIst()
