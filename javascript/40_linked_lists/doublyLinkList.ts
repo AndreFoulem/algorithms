@@ -130,6 +130,16 @@ class DoublyLinkedlIst {
       return tempTail
     }
   }
+
+  set(index: number, value: string) {
+    let getNode = this.get(index)
+    if (getNode === null) return null
+
+    // @ts-ignore
+    getNode.value = value
+
+    return true
+  }
 }
 
 let myList = new DoublyLinkedlIst()
@@ -141,3 +151,5 @@ myList.push('20')
 
 console.log(myList)
 console.log(myList.get(0))
+console.log(myList.set(2, 'yo'))
+console.log(myList)
