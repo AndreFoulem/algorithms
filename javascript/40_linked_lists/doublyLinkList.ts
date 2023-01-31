@@ -140,6 +140,33 @@ class DoublyLinkedlIst {
 
     return true
   }
+
+  insert(index: number, value: string) {
+    // unshift
+    if (index === 0) return this.unshift(value)
+    // push
+    if (index === this.length) return this.push(value)
+
+    // insert
+    let afterNode = this.get(index - 1)
+    if (afterNode === null) return null
+
+    // @ts-ignore
+    let previousNode = afterNode.prev
+
+    let insertNode = new ListNode(value)
+
+    // @ts-ignore
+    insertNode.prev = previousNode
+    insertNode.next = afterNode
+    //prevNode
+    // @ts-ignore
+    previousNode.next = insertNode
+
+    //nextNode
+    // @ts-ignore
+    afterNode.prev = insertNode
+  }
 }
 
 let myList = new DoublyLinkedlIst()
