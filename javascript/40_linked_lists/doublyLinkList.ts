@@ -175,7 +175,7 @@ class DoublyLinkedlIst {
     if (index === this.length) return this.pop()
 
     //get
-    let removeNode = this.get(index - 1)
+    let removeNode = this.get(index)
     if (removeNode === null) return null
 
     // previousNode
