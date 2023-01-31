@@ -167,6 +167,34 @@ class DoublyLinkedlIst {
     // @ts-ignore
     afterNode.prev = insertNode
   }
+
+  remove(index: number) {
+    // shift
+    if (index === 0) return this.shift()
+    // pop
+    if (index === this.length) return this.pop()
+
+    //get
+    let removeNode = this.get(index - 1)
+    if (removeNode === null) return null
+
+    // previousNode
+    // @ts-ignore
+    let previousNode = removeNode.prev
+    // @ts-ignore
+    let afterNode = removeNode.next
+    // reconnect pointers
+    previousNode.next = afterNode
+    afterNode.prev = previousNode
+    //clean remove node pointers
+    // @ts-ignore
+    removeNode.prev = null
+    // @ts-ignore
+    removeNode.next = null
+
+    this.length--
+    return removeNode
+  }
 }
 
 let myList = new DoublyLinkedlIst()
