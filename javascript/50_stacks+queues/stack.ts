@@ -32,10 +32,30 @@ class Stack {
     }
     return ++this.size
   }
+
+  shift() {
+    let firstNode = this.first
+
+    if (this.size === 0) {
+      return null
+    }
+    if (this.size === 1) {
+      this.first = null
+      this.last = null
+    } else {
+      // @ts-ignore
+      this.first = firstNode.next
+      // @ts-ignore
+      firstNode.next = null
+    }
+    this.size--
+    return this
+  }
 }
 
 let myStack = new Stack()
-myStack.unshift('last')
-myStack.unshift('mid')
-myStack.unshift('first')
+myStack.unshift('3')
+myStack.unshift('2')
+myStack.unshift('1')
+myStack.shift()
 console.log(myStack)
