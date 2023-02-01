@@ -4,7 +4,7 @@
 // -> background tasks
 // -> uploading ressources
 
-class QueueNode {
+class QueueElement {
   value: string
   next = null
 
@@ -23,4 +23,8 @@ class Queue {
     this.last = null
     this.size = 0
   }
+
+  enqueue(value) {}
+
+  dequeue() {}
 }
