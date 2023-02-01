@@ -24,7 +24,15 @@ class Queue {
     this.size = 0
   }
 
-  enqueue(value) {}
+  enqueue(value) {
+    let newNode = new QueueElement(value)
+
+    if (this.size === 0) {
+      this.first = newNode
+      this.last = newNode
+    } else {
+    }
+  }
 
   dequeue() {}
 }
