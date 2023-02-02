@@ -31,15 +31,15 @@ class BinarySearchTree {
           //> found a place
           current.left = newNode
           return this
-        } else {
-          current = current.left
         }
+        current = current.left
       } else if (value > current.value) {
         //> found a place
         if (current.right === null) {
           current.right = newNode
           return this
-        } else current = current.right
+        }
+        current = current.right
       }
     }
   }
