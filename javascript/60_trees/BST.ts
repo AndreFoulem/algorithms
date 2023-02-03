@@ -79,7 +79,18 @@ class BinarySearchTree {
     return visited
   }
 
-  depthFirstSearch_PreOrder() {}
+  depthFirstSearch_PreOrder() {
+    let visited = []
+    let current = this.root
+    function traverse(node: object) {
+      visited.push(node)
+      if (node.left) traverse(node.left)
+      if (node.right) traverse(node.right)
+    }
+    traverse(current)
+
+    return visited
+  }
 }
 
 let tree = new BinarySearchTree()
