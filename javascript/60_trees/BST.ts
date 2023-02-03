@@ -44,10 +44,37 @@ class BinarySearchTree {
     }
   }
 
-  find(value: number) {
-    if (!this.root) {
-      this.root = newNode
-      return this
+  contains(value: number) {
+    if (!this.root) return false
+
+    let current = this.root
+    let found = false
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left
+      } else if (value < current.value) {
+        current = current.right
+      } else {
+        return true
+      }
+    }
+    return true
+  }
+
+  breadthFirstSearch() {
+    let visited = []
+    let queue = []
+    let node = this.root
+
+    queue.push(node)
+    while (queue.length) {
+      // 1) Put the node value from queue to visited
+      node = queue.shift()
+      visited.push(node)
+
+      // 2) Add children to queue
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
     }
   }
 }
