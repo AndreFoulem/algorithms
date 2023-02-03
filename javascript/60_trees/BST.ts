@@ -70,13 +70,16 @@ class BinarySearchTree {
     while (queue.length) {
       // 1) Put the node value from queue to visited
       node = queue.shift()
-      visited.push(node)
+      visited.push(node.value)
 
       // 2) Add children to queue
       if (node.left) queue.push(node.left)
       if (node.right) queue.push(node.right)
     }
+    return visited
   }
+
+  depthFirstSearch_PreOrder() {}
 }
 
 let tree = new BinarySearchTree()
