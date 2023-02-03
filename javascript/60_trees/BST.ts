@@ -43,6 +43,8 @@ class BinarySearchTree {
       }
     }
   }
+
+  find(value: number) {}
 }
 
 let tree = new BinarySearchTree()
