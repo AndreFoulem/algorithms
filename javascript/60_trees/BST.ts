@@ -44,7 +44,12 @@ class BinarySearchTree {
     }
   }
 
-  find(value: number) {}
+  find(value: number) {
+    if (!this.root) {
+      this.root = newNode
+      return this
+    }
+  }
 }
 
 let tree = new BinarySearchTree()
