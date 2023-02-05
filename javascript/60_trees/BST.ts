@@ -79,6 +79,7 @@ class BinarySearchTree {
     return visited
   }
 
+  //* 1) Visit node first 2)Grab the children 3) Cycle
   depthFirstSearch_PreOrder() {
     let visited = []
     let current = this.root
@@ -91,6 +92,9 @@ class BinarySearchTree {
 
     return visited
   }
+
+  //* Traverse to children then work our way back
+  depthFirstSearch_PostOrder() {}
 }
 
 let tree = new BinarySearchTree()
