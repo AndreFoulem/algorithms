@@ -94,7 +94,16 @@ class BinarySearchTree {
   }
 
   //* Traverse to children then work our way back
-  depthFirstSearch_PostOrder() {}
+  depthFirstSearch_PostOrder() {
+    let visited = []
+    function traverse(node: object) {
+      if (node.left) traverse(node.left)
+      if (node.right) traverse(node.right)
+      visited.push(node.value)
+    }
+    traverse(this.root)
+    return visited
+  }
 }
 
 let tree = new BinarySearchTree()
