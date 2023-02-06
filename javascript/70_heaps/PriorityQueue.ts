@@ -7,8 +7,9 @@ class PriorityQueue {
     this.values = []
   }
 
-  insert(element) {
-    this.values.push(element)
+  enqueue(val, priority) {
+    let newNode = new Node(val, priority)
+    this.values.push(newNode)
     this.bubbleup()
   }
 
@@ -20,7 +21,7 @@ class PriorityQueue {
       let parentIdx = Math.floor((idx - 1) / 2)
       let parent = this.values[parentIdx]
 
-      if (element <= parent) break
+      if (element.priority >= parent.priority) break
       // swap values
       this.values[parentIdx] = element
       this.values[idx] = parent
@@ -28,14 +29,14 @@ class PriorityQueue {
     }
   }
 
-  extractMax() {
-    const max = this.values[0]
+  dequeue() {
+    const min = this.values[0]
     const end = this.values.pop()
     // switch
     this.values[0] = end
 
     this.sinkDown()
-    return max
+    return min
   }
   sinkDown() {
     let idx = 0
@@ -50,15 +51,15 @@ class PriorityQueue {
 
       if (leftChildIdx < length) {
         leftChild = this.values[leftChildIdx]
-        if (leftChild > element) {
+        if (leftChild.priority < element.priority) {
           swap = leftChildIdx
         }
       }
       if (rightChildIdx < length) {
         rightChild = this.values[rightChildIdx]
         if (
-          (swap == null && rightChild > element) ||
-          (swap !== null && rightChild > leftChild)
+          (swap == null && rightChild.priority < element.priority) ||
+          (swap !== null && rightChild.priority < leftChild.priority)
         ) {
           swap = rightChildIdx
         }
@@ -75,5 +76,15 @@ class Node {
   constructor(val, priority) {
     this.val = val
     this.priority = priority
+    // this.time = Date.now()
   }
 }
+
+let er = new PriorityQueue()
+er.enqueue('gunshot wound', 1)
+er.enqueue('fever', 5)
+er.enqueue('high fever', 2)
+er.enqueue('cold', 4)
+er.enqueue('high fever', 2)
+er.enqueue('glass in foot', 3)
+console.table(er)
