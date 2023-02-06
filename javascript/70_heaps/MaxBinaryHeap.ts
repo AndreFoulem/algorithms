@@ -25,7 +25,18 @@ class MaxBinaryHeap {
     }
   }
 
-  extractMax() {}
+  extractMax() {
+    const max = this.values[0]
+    const end = this.values.pop()
+    // switch
+    this.values[0] = end
+
+    this.sinkDown()
+    return max
+  }
+  sinkDown() {
+    let idx = 0
+  }
 }
 
 let heap = new MaxBinaryHeap([12, 34, 56, 45, 34, 23])
