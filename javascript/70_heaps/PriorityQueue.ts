@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 // * -> Priority Queue: w/ Min Heap
+// * -> Not for searching - No order like a Binary Search Tree
 
 class PriorityQueue {
   constructor() {
