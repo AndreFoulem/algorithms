@@ -56,6 +56,7 @@ class HashTable {
         this.keyMap[i]
       }
     }
+    return valuesArr
   }
 
 }
