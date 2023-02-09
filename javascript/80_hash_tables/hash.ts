@@ -1,4 +1,6 @@
 console.log('A'.charCodeAt(0))
+//* Seperate Chaining -> Nested object
+//* Linear Chaining -> flat object (skip occupied slot)
 
 function hash(key: string, arrayLen: number): number {
   let total = 0
