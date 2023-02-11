@@ -8,7 +8,18 @@ let graphAdjacencyList: {
 }
 
 const depthFirstPrint = (graph, source) => {
-  const stack = []
+  const stack = [source]
+
+  while (stack.length > 0) {
+    // 1 -> pop stack + mark it
+    const current = stack.pop()
+    console.log('cur', current)
+
+    // 2 -> assign neighbours to stack
+    for (let neighbour of graph[current]) {
+      stack.push(neighbour)
+    }
+  }
 }
 
 graphAdjacencyList = {
