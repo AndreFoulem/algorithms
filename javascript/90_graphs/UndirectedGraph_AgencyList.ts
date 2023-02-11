@@ -22,6 +22,14 @@ class UndirectedGraph_AgencyList {
       (v) => v !== vertex1
     )
   }
+
+  removeVertex(vertex) {
+    while (this.adjacencyList[vertex].length) {
+      const adjacentVertex = this.adjacencyList[vertex].pop()
+      this.removeEdge(vertex, adjacentVertex)
+    }
+    delete this.adjacencyList[vertex]
+  }
 }
 
 let graph = new UndirectedGraph_AgencyList()
@@ -29,6 +37,8 @@ graph.addVertex('San Francisco')
 graph.addVertex('Turin')
 graph.addVertex('New York')
 graph.addEdge('San Francisco', 'Turin')
-graph.removeEdge('San Francisco', 'Turin')
+graph.addEdge('Turin', 'New York')
+
+graph.removeVertex('Turin')
 
 console.log(graph)
