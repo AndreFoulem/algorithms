@@ -27,6 +27,6 @@ graphAdjacencyList = {
   b: ['d'],
   c: ['e'],
   d: ['f'],
-  e: [],
-  f: [],
+  e: ['g'],
+  f: ['c'],
 }
