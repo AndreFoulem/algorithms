@@ -9,7 +9,16 @@ let graphAL: {
   f: string[]
 }
 
-const breathFirstPrint = (graph, source) => {}
+const breathFirstPrint = (graph, source) => {
+  const queue = [source]
+  while (queue.length > 0) {
+    const current = queue.shift()
+    console.log(current)
+    for (let neighbour of graphAL[current]) {
+      queue.push(neighbour)
+    }
+  }
+}
 
 graphAL = {
   a: ['a', 'c'],
