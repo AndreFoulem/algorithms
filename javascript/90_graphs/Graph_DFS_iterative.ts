@@ -22,6 +22,8 @@ const depthFirstPrint = (graph, source) => {
   }
 }
 
+const depthFirstPrint2 = (graph, source) => {}
+
 graphAdjacencyList = {
   a: ['a', 'c'],
   b: ['d'],
