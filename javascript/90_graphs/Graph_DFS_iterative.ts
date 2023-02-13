@@ -22,16 +22,6 @@ const depthFirstPrint = (graph, source) => {
   }
 }
 
-const depthFirstPrint2 = (graph, source) => {
-  console.log(source)
-  //-> recursive base case is implicit
-  //-> _when the array (no neighbors) is empty the loop stops
-
-  for (let neighbor of graph[source]) {
-    depthFirstPrint2(graphAdjacencyList, neighbor)
-  }
-}
-
 graphAdjacencyList = {
   a: ['a', 'c'],
   b: ['d'],
@@ -41,4 +31,4 @@ graphAdjacencyList = {
   f: [],
 }
 
-// depthFirstPrint2(graphAdjacencyList, 'a')
+// depthFirstPrint(graphAdjacencyList, 'a')
