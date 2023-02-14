@@ -15,6 +15,24 @@
  */
 
 //& - ENTITY: GRAPH | SOURCE | DESTINATION | NEIGHBOURS
+let graphAcyclical: {
+  a: string[]
+  b: string[]
+  c: string[]
+  d: string[]
+  e: string[]
+  f: string[]
+  g: string[]
+}
+graphAcyclical = {
+  a: ['a', 'c'],
+  b: ['d'],
+  c: ['e'],
+  d: ['f'],
+  e: ['g'],
+  f: [],
+  g: [],
+}
 
 const hasPath = (graph, src, dst) => {
   //* Source is my guard base case
@@ -23,7 +41,7 @@ const hasPath = (graph, src, dst) => {
   for (let neighbor of graph[src]) {
     // ex:1  let F of array
     // call recursively
-    if (hasPath(graph, neighbor, dst) == true) {
+    if (hasPath(graph, neighbor, dst) === true) {
       return true
     }
   }
@@ -31,3 +49,5 @@ const hasPath = (graph, src, dst) => {
   //* return false if not winning path
   return false
 }
+
+// console.log(hasPath(graphAcyclical, 'a', 'e'))
