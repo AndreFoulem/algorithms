@@ -30,6 +30,22 @@ const edges = [
   ['o', 'n'],
 ]
 
+const _hasPath = (graph, src, dst, visited) => {
+  //* BASE
+  if (src === dst) return true
+  if (visited.has(src)) return false
+
+  visited.add(src)
+
+  for (let neighbor of graph[src]) {
+    if (_hasPath(graph, neighbor, dst, visited) === true) {
+      return true
+    }
+  }
+  //* NO PATH
+  return false
+}
+
 const buildGraph = (edges) => {
   const graph = {}
 
@@ -42,13 +58,14 @@ const buildGraph = (edges) => {
     graph[a].push(b)
     graph[b].push(a)
   }
-
+  console.log(graph)
   return graph
 }
 
 //* 2 Implement a depth first traversal
 const undirectedPath = (edges, nodeA, nodeB) => {
   const graph = buildGraph(edges)
+  return _hasPath(graph, nodeA, nodeB, new Set())
 }
 
-undirectedPath(edges, 'i', 'l')
+console.log(undirectedPath(edges, 'i', 'l'))
