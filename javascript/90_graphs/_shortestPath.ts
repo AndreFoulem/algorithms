@@ -6,6 +6,7 @@ export {};
 
 const shortestPath = (edges, nodeA, nodeB) {
   const graph = buildGraph(edges)
+  const visited = new Set([nodeA])
 
   const queue = [nodeA, 0]
   
@@ -16,11 +17,17 @@ const shortestPath = (edges, nodeA, nodeB) {
       return distance
     }
     for (let neighbor of graph[node]) {
-      queue.push(neighbor)
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor)
+        queue.push([neighbor, distance + 1])
+      }
     }
   }
 
+  // no path
+  return -1
 }
+
 const buildGraph= (edges) => {
   const graph = {}
 
