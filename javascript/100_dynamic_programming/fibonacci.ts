@@ -1,4 +1,5 @@
 //* Fibonacci
+//& YT 23
 
 /**
  *  Write a function <fib(n)> that takes in a number as an argument. int(number) and returns the n-th number of the fibonacci sequence
@@ -11,7 +12,7 @@
  */
 
 const fib = (n) => {
-  base: if (n <= 2) return 1
+  base_1: if (n < 2) return n
 
   return fib(n - 1) + fib(n - 2)
   // return fib(5)
