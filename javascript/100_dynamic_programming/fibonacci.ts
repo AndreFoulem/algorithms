@@ -11,13 +11,15 @@
  * fib(n) 1, 1, 2, 3, 5, 8, 13, 21
  */
 
-const fib = (n) => {
+//* ADD Memoization -> use Object: keys will be arg to fn / value is return value
+
+const fib = (n, memo = {}) => {
+  check_memo: if (n in memo) return memo[n]
+
   base_1: if (n < 2) return n
 
-  return fib(n - 1) + fib(n - 2)
-  // return fib(5)
+  memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
+  return memo[n]
 }
 
-console.log(fib(6))
-console.log(fib(7))
-console.log(fib(8))
+console.log(fib(50))
