@@ -1,5 +1,12 @@
 //* Grid traveler -> Dimension: Tuple (x,y)
 
+//* MEMO STEPS
+//* 1: Init memo obj
+//* 2: Pass args into key
+//* 3: If key is in memo return the cached memo
+//* 4: Add the recursion to the memo[key]
+//* 5: return memo[key]
+
 const gridTraveler = (m, n, memo = {}) => {
   const key = m + ',' + n
   if (key in memo) return memo[key]
