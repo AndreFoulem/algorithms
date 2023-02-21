@@ -16,3 +16,19 @@ const howSum = (targetSum, numbers) => {
 }
 
 console.log(howSum(8, [2, 3, 5]))
+
+/**
+ * BRUTE FORCE COMPLEXITY
+ *  m = target sum
+ *  n= numbers.length
+ *  TIME: O(n^m * m)
+ *  SPACE: O(m)
+ */
+
+/**
+ * MEMO COMPLEXITY
+ *  m = target sum
+ *  n= numbers.length
+ *  TIME: O(n^m * m)
+ *  SPACE: O(m)
+ */
