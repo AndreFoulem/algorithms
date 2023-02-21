@@ -6,22 +6,32 @@
 
 // ex: canSum(7, [5,3,4,7]) -> true
 
-const canSum = (targetSum, numArray) => {
+const canSum = (targetSum, numArray, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum]
+
   base: if (targetSum === 0) return true
   invalidBase: if (targetSum < 0) return false
 
   for (let num of numArray) {
     const remainder = targetSum - num
-    if (canSum(remainder, numbers) === true) {
+    if (canSum(remainder, numArray, memo) === true) {
+      memo[targetSum] = true
       return true
     }
   }
 
+  memo[targetSum] = false
   return false
 }
 
+console.log(canSum(7, [2, 4]))
 /**
  * Complexity of BRUTE FORCE
+ * O(n^m)
+ * O(m)
+ */
+/**
+ * Complexity of MEMO
  * O(n*m)
- * O(n)
+ * O(m)
  */
