@@ -10,7 +10,7 @@ const bestSum = (targetSum, numbers) => {
 
   let shortestCombination = null
 
-  for (let num in numbers) {
+  for (let num of numbers) {
     const remainder = targetSum - Number(num)
     const remainderCombination = bestSum(remainder, numbers)
 
