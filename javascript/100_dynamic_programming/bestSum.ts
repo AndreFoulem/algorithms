@@ -4,7 +4,8 @@
  * Write bestSum(targetSum: int, [numbers: int])  -> shortest combination for sum
  */
 
-const bestSum = (targetSum, numbers) => {
+const bestSum = (targetSum, numbers, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum]
   if (targetSum === 0) return []
   if (targetSum < 0) return null
 
@@ -12,7 +13,7 @@ const bestSum = (targetSum, numbers) => {
 
   for (let num of numbers) {
     const remainder = targetSum - Number(num)
-    const remainderCombination = bestSum(remainder, numbers)
+    const remainderCombination = bestSum(remainder, numbers, memo)
 
     if (remainderCombination !== null) {
       const combination = [...remainderCombination, num]
@@ -25,7 +26,7 @@ const bestSum = (targetSum, numbers) => {
       }
     }
   }
-
+  memo[targetSum] = shortestCombination
   return shortestCombination
 }
 
