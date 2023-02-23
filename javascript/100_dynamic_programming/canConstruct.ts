@@ -7,7 +7,8 @@
 
 //& ex: canConstruct('', [ cat, dog, mouse ] ) -> true. Takes place in all place... base case?
 
-const canConstruct = (target, wordBank) => {
+const canConstruct = (target, wordBank, memo = {}) => {
+  if (target in memo) return memo[target]
   if (target === '') return true
 
   for (let word of wordBank) {
@@ -16,10 +17,12 @@ const canConstruct = (target, wordBank) => {
 
       // early return for exact match
       if (canConstruct(suffix, wordBank) === true) {
+        memo[target] = true
         return true
       }
     }
   }
+  memo[target] = false
   return false
 }
 
