@@ -8,8 +8,6 @@ const fibo = (n) => {
     table[i + 2] += table[i]
   }
   return table[n]
-
-  console.log(table)
 }
 
 console.log(fibo(6))
