@@ -19,3 +19,5 @@ const gridTraveler = (m, n) => {
 
   return table[m][n]
 }
+
+console.log(gridTraveler(1, 1))
