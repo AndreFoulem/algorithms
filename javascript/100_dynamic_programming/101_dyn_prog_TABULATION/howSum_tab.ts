@@ -29,3 +29,4 @@ const howSum = (targetSum, numbers) => {
 }
 
 console.log(howSum(7, [3, 2, 7, 4, 0]))
+console.log(howSum(8, [2, 3, 4, 5]))
