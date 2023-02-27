@@ -16,6 +16,16 @@ const howSum = (targetSum, numbers) => {
 
   //? seed data
   table[0] = []
+
+  for (let i = 0; i <= targetSum; i++) {
+    if (table[i] !== null) {
+      for (let num of numbers) {
+        table[i + num] = [...table[i], num]
+      }
+    }
+  }
+
+  return table[targetSum]
 }
 
 console.log(howSum(7, [3, 2, 7, 4, 0]))
